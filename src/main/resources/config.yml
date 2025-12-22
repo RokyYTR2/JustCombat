@@ -1,0 +1,28 @@
+# =======================
+# JustCombat Configuration
+# =======================
+# Prefix used for all plugin messages.
+# =======================
+prefix: "§x§D§3§2§E§2§E§lᴄ§x§D§4§4§0§3§E§lᴏ§x§D§5§5§2§4§D§lᴍ§x§D§6§6§3§6§D§lʙ§x§D§7§7§5§5§D§lᴀ§x§D§8§8§7§6§C§lᴛ §8» §f"
+
+# =======================
+# Settings
+# =======================
+# Combat duration in seconds.
+# =======================
+combat-duration: 20
+
+# =======================
+# Messages
+# =======================
+messages:
+  combat:
+    tagged-attacker: "&7You are now in combat with &e%player%&7! Do not log out."
+    tagged-victim: "&7You have been attacked by &e%player%&7! You are now in combat."
+    combat-ended: "&aYou are no longer in combat. You can now safely log out."
+    command-blocked: "&cYou cannot use commands while in combat!"
+    combat-logout: "&e%player% &clogged out while in combat!"
+  commands:
+    usage: "&cUse: /combat <reload>"
+    no-permission: "&cYou don't have permission to use this."
+    reload-success: "&aConfig reloaded!"
