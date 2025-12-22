@@ -1,0 +1,6 @@
+name: JustCombat
+version: '0.0.1'
+main: dev.meyba.justCombat.JustCombat
+api-version: '1.21'
+authors: [ Meyba._., Jezevcik20 ]
+description: Just a combat plugin.
