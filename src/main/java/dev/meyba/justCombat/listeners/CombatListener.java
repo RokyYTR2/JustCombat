@@ -63,11 +63,11 @@ public class CombatListener implements Listener {
 
         String message;
         if (killer != null) {
-            message = plugin.getConfig().getString("messages.combat.death-by-player", "&7ʜʀáč &c%victim% &7ʙʏʟ ᴢᴀʙɪᴛ ʜʀáčᴇᴍ &a%killer%")
+            message = plugin.getConfig().getString("messages.combat.death-by-player", "&7ᴘʟᴀʏᴇʀ &c%victim% &7ᴡᴀꜱ ᴋɪʟʟᴇᴅ ʙʏ &a%killer%")
                     .replace("%victim%", victim.getName())
                     .replace("%killer%", killer.getName());
         } else {
-            message = plugin.getConfig().getString("messages.combat.death-other", "&7ʜʀáč &c%victim% &7ᴢᴇᴍřᴇʟ")
+            message = plugin.getConfig().getString("messages.combat.death-other", "&7ᴘʟᴀʏᴇʀ &c%victim% &7ᴅɪᴇᴅ")
                     .replace("%victim%", victim.getName());
         }
 
@@ -104,7 +104,7 @@ public class CombatListener implements Listener {
             event.setCancelled(true);
 
             String prefix = ChatColor.translateAlternateColorCodes('&', plugin.getConfig().getString("prefix", ""));
-            String blockedMessage = plugin.getConfig().getString("messages.combat.command-blocked", "&cᴛᴇɴᴛᴏ ᴘříᴋᴀᴢ ɴᴇʟᴢᴇ ᴘᴏᴜžíᴛ ᴠ ᴄᴏᴍʙᴀᴛᴜ!");
+            String blockedMessage = plugin.getConfig().getString("messages.combat.command-blocked", "&cʏᴏᴜ ᴄᴀɴɴᴏᴛ ᴜꜱᴇ ᴛʜɪꜱ ᴄᴏᴍᴍᴀɴᴅ ᴡʜɪʟᴇ ɪɴ ᴄᴏᴍʙᴀᴛ!");
             player.sendMessage(prefix + ChatColor.translateAlternateColorCodes('&', blockedMessage));
 
             String soundName = plugin.getConfig().getString("sounds.command-blocked");

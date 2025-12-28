@@ -1,6 +1,6 @@
 package dev.meyba.justCombat;
 
-import dev.meyba.justCombat.commands.CombatCommands;
+import dev.meyba.justCombat.command.CombatCommand;
 import dev.meyba.justCombat.listeners.CombatListener;
 import dev.meyba.justCombat.managers.CombatManager;
 import dev.meyba.justCombat.utils.VersionChecker;
@@ -15,7 +15,7 @@ public final class JustCombat extends JavaPlugin {
 
         combatManager = new CombatManager(this);
 
-        getCommand("combat").setExecutor(new CombatCommands(this, combatManager));
+        getCommand("combat").setExecutor(new CombatCommand(this, combatManager));
 
         getServer().getPluginManager().registerEvents(new CombatListener(this, combatManager), this);
 

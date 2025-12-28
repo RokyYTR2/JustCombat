@@ -60,7 +60,7 @@ public class CombatManager {
         combatPlayers.put(uuid, System.currentTimeMillis() + (combatDuration * 1000L));
 
         if (sendMessage) {
-            String message = plugin.getConfig().getString("messages.combat.tagged", "&cᴅᴏꜱᴛᴀʟ ᴊꜱɪ ꜱᴇ ᴅᴏ ᴄᴏᴍʙᴀᴛᴜ!");
+            String message = plugin.getConfig().getString("messages.combat.tagged", "&cʏᴏᴜ ᴀʀᴇ ɴᴏᴡ ɪɴ ᴄᴏᴍʙᴀᴛ!");
             player.sendMessage(colorize(getPrefix() + message));
 
             String soundName = plugin.getConfig().getString("sounds.combat-start");
@@ -85,7 +85,7 @@ public class CombatManager {
 
                 if (remaining <= 0) {
                     removeCombat(player);
-                    String endMessage = plugin.getConfig().getString("messages.combat.combat-ended", "&aᴠʏᴘʀšᴇʟ ᴛɪ ᴄᴏᴍʙᴀᴛ!");
+                    String endMessage = plugin.getConfig().getString("messages.combat.combat-ended", "&aʏᴏᴜ ᴀʀᴇ ɴᴏ ʟᴏɴɢᴇʀ ɪɴ ᴄᴏᴍʙᴀᴛ!");
                     player.sendMessage(colorize(getPrefix() + endMessage));
 
                     String soundName = plugin.getConfig().getString("sounds.combat-end");
@@ -103,7 +103,7 @@ public class CombatManager {
                     double seconds = remaining / 1000.0;
                     String format = plugin.getConfig().getString("actionbar.time-format", "%.1f");
                     String timeStr = String.format(format, seconds);
-                    String actionBarText = plugin.getConfig().getString("actionbar.text", "&c&lᴄᴏᴍʙᴀᴛ &8» &f%time%ꜱ")
+                    String actionBarText = plugin.getConfig().getString("actionbar.text", "&c&lᴄᴏᴍʙᴀᴛ &8» &f%time%s")
                             .replace("%time%", timeStr);
                     sendActionBar(player, actionBarText);
                 }
@@ -143,7 +143,7 @@ public class CombatManager {
             }
 
             if (broadcastLogout) {
-                String message = plugin.getConfig().getString("messages.combat.combat-logout", "&c%player% &7ꜱᴇ ᴏᴅᴘᴏᴊɪʟ ᴠ ᴄᴏᴍʙᴀᴛᴜ!")
+                String message = plugin.getConfig().getString("messages.combat.combat-logout", "&c%player% &7ʟᴏɢɢᴇᴅ ᴏᴜᴛ ᴡʜɪʟᴇ ɪɴ ᴄᴏᴍʙᴀᴛ!")
                         .replace("%player%", player.getName());
                 for (Player online : Bukkit.getOnlinePlayers()) {
                     online.sendMessage(colorize(getPrefix() + message));
