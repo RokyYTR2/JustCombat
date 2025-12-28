@@ -43,9 +43,6 @@ public class CombatManager {
     }
 
     public void tagPlayer(Player player, Player attacker) {
-        UUID playerUUID = player.getUniqueId();
-        UUID attackerUUID = attacker.getUniqueId();
-
         boolean playerWasInCombat = isInCombat(player);
         boolean attackerWasInCombat = isInCombat(attacker);
 
