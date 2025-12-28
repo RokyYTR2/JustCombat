@@ -3,7 +3,7 @@
 # =======================
 # Prefix used for all plugin messages.
 # =======================
-prefix: "§x§D§3§2§E§2§E§lᴄ§x§D§4§4§0§3§E§lᴏ§x§D§5§5§2§4§D§lᴍ§x§D§6§6§3§6§D§lʙ§x§D§7§7§5§5§D§lᴀ§x§D§8§8§7§6§C§lᴛ §8» §f"
+prefix: "§x§D§3§2§E§2§E§lᴄ§x§D§4§4§0§3§E§lᴏ§x§D§5§5§2§4§D§lᴍ§x§D§6§6§3§5§D§lʙ§x§D§7§7§5§6§C§lᴀ§x§D§8§8§7§7§C§lᴛ §8» §f"
 
 # =======================
 # Settings
@@ -68,41 +68,41 @@ blocked-commands:
 messages:
   combat:
     # Message sent when player enters combat
-    tagged: "&cᴅᴏꜱᴛᴀʟ ᴊꜱɪ ꜱᴇ ᴅᴏ ᴄᴏᴍʙᴀᴛᴜ!"
+    tagged: "&cʏᴏᴜ ᴀʀᴇ ɴᴏᴡ ɪɴ ᴄᴏᴍʙᴀᴛ!"
 
     # Message sent when player tagged someone else
-    tagged-attacker: "&cᴜᴛᴏčíš ɴᴀ &e%player%&c!"
+    tagged-attacker: "&cʏᴏᴜ ᴀᴛᴛᴀᴄᴋᴇᴅ &e%player%&c!"
 
     # Message sent when player was tagged by someone else
-    tagged-victim: "&cʙʏʟ ᴊꜱɪ ɴᴀᴘᴀᴅᴇɴ ʜʀáčᴇᴍ &e%player%&c!"
+    tagged-victim: "&cʏᴏᴜ ᴡᴇʀᴇ ᴀᴛᴛᴀᴄᴋᴇᴅ ʙʏ &e%player%&c!"
 
     # Message sent when combat ends
-    combat-ended: "&aᴠʏᴘʀšᴇʟ ᴛɪ ᴄᴏᴍʙᴀᴛ!"
+    combat-ended: "&aʏᴏᴜ ᴀʀᴇ ɴᴏ ʟᴏɴɢᴇʀ ɪɴ ᴄᴏᴍʙᴀᴛ!"
 
     # Message sent when trying to use blocked command
-    command-blocked: "&cᴛᴇɴᴛᴏ ᴘříᴋᴀᴢ ɴᴇʟᴢᴇ ᴘᴏᴜžíᴛ ᴠ ᴄᴏᴍʙᴀᴛᴜ!"
+    command-blocked: "&cʏᴏᴜ ᴄᴀɴɴᴏᴛ ᴜꜱᴇ ᴛʜɪꜱ ᴄᴏᴍᴍᴀɴᴅ ᴡʜɪʟᴇ ɪɴ ᴄᴏᴍʙᴀᴛ!"
 
     # Broadcast message when player logs out in combat
-    combat-logout: "&c%player% &7ꜱᴇ ᴏᴅᴘᴏᴊɪʟ ᴠ ᴄᴏᴍʙᴀᴛᴜ!"
+    combat-logout: "&c%player% &7ʟᴏɢɢᴇᴅ ᴏᴜᴛ ᴡʜɪʟᴇ ɪɴ ᴄᴏᴍʙᴀᴛ!"
 
     # Death message when killed by player
-    death-by-player: "&7ʜʀáč &c%victim% &7ʙʏʟ ᴢᴀʙɪᴛ ʜʀáčᴇᴍ &a%killer%"
+    death-by-player: "&7ᴘʟᴀʏᴇʀ &c%victim% &7ᴡᴀꜱ ᴋɪʟʟᴇᴅ ʙʏ &a%killer%"
 
     # Death message when died from other causes
-    death-other: "&7ʜʀáč &c%victim% &7ᴢᴇᴍřᴇʟ"
+    death-other: "&7ᴘʟᴀʏᴇʀ &c%victim% &7ᴅɪᴇᴅ"
 
   commands:
     # General command usage message
-    usage: "&cᴘᴏᴜžɪᴛí: /combat <reload>"
+    usage: "&cᴜꜱᴀɢᴇ: /combat <reload|info>"
 
     # No permission message
-    no-permission: "&cɴᴇᴍáš ᴏᴘʀáᴠɴěɴí ᴘᴏᴜžíᴛ ᴛᴇɴᴛᴏ ᴘříᴋᴀᴢ."
+    no-permission: "&cʏᴏᴜ ᴅᴏɴ'ᴛ ʜᴀᴠᴇ ᴘᴇʀᴍɪꜱꜱɪᴏɴ ᴛᴏ ᴜꜱᴇ ᴛʜɪꜱ ᴄᴏᴍᴍᴀɴᴅ."
 
     # Only players can use this command
-    not-a-player: "&cᴘᴏᴜᴢᴇ ʜʀáči ᴍᴏʜᴏᴜ ᴘᴏᴜžíᴛ ᴛᴇɴᴛᴏ ᴘříᴋᴀᴢ."
+    not-a-player: "&cᴏɴʟʏ ᴘʟᴀʏᴇʀꜱ ᴄᴀɴ ᴜꜱᴇ ᴛʜɪꜱ ᴄᴏᴍᴍᴀɴᴅ."
 
     # Config reloaded message
-    reload-success: "&aᴋᴏɴꜰɪɢᴜʀᴀᴄᴇ ʙʏʟᴀ ɴᴀčᴛᴇɴᴀ!"
+    reload-success: "&aᴄᴏɴꜰɪɢᴜʀᴀᴛɪᴏɴ ʀᴇʟᴏᴀᴅᴇᴅ!"
 
 # =======================
 # Action Bar
