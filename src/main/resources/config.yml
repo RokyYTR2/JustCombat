@@ -8,21 +8,125 @@ prefix: "§x§D§3§2§E§2§E§lᴄ§x§D§4§4§0§3§E§lᴏ§x§D§5§5§2§
 # =======================
 # Settings
 # =======================
-# Combat duration in seconds.
+# Combat tag settings.
 # =======================
-combat-duration: 20
+settings:
+  # Duration of combat tag in seconds
+  combat-duration: 15
+
+  # Kill player on combat log
+  kill-on-logout: true
+
+  # Broadcast combat log message
+  broadcast-logout: true
+
+  # Show action bar with remaining time
+  show-actionbar: true
+
+  # Action bar update interval in ticks (20 ticks = 1 second)
+  actionbar-update-interval: 2
+
+# =======================
+# Blocked Commands
+# =======================
+# Commands that cannot be used while in combat.
+# =======================
+blocked-commands:
+  enabled: true
+  commands:
+    - "spawn"
+    - "home"
+    - "sethome"
+    - "tpa"
+    - "tpaccept"
+    - "tpahere"
+    - "tp"
+    - "warp"
+    - "warps"
+    - "back"
+    - "hub"
+    - "lobby"
+    - "leave"
+    - "quit"
+    - "rtp"
+    - "randomtp"
+    - "wild"
+    - "wilderness"
+    - "ec"
+    - "enderchest"
+    - "workbench"
+    - "wb"
+    - "craft"
+    - "kit"
+    - "kits"
 
 # =======================
 # Messages
 # =======================
+# Messages shown in chat.
+# =======================
 messages:
   combat:
-    tagged-attacker: "&7You are now in combat with &e%player%&7! Do not log out."
-    tagged-victim: "&7You have been attacked by &e%player%&7! You are now in combat."
-    combat-ended: "&aYou are no longer in combat. You can now safely log out."
-    command-blocked: "&cYou cannot use commands while in combat!"
-    combat-logout: "&e%player% &clogged out while in combat!"
+    # Message sent when player enters combat
+    tagged: "&cᴅᴏꜱᴛᴀʟ ᴊꜱɪ ꜱᴇ ᴅᴏ ᴄᴏᴍʙᴀᴛᴜ!"
+
+    # Message sent when player tagged someone else
+    tagged-attacker: "&cᴜᴛᴏčíš ɴᴀ &e%player%&c!"
+
+    # Message sent when player was tagged by someone else
+    tagged-victim: "&cʙʏʟ ᴊꜱɪ ɴᴀᴘᴀᴅᴇɴ ʜʀáčᴇᴍ &e%player%&c!"
+
+    # Message sent when combat ends
+    combat-ended: "&aᴠʏᴘʀšᴇʟ ᴛɪ ᴄᴏᴍʙᴀᴛ!"
+
+    # Message sent when trying to use blocked command
+    command-blocked: "&cᴛᴇɴᴛᴏ ᴘříᴋᴀᴢ ɴᴇʟᴢᴇ ᴘᴏᴜžíᴛ ᴠ ᴄᴏᴍʙᴀᴛᴜ!"
+
+    # Broadcast message when player logs out in combat
+    combat-logout: "&c%player% &7ꜱᴇ ᴏᴅᴘᴏᴊɪʟ ᴠ ᴄᴏᴍʙᴀᴛᴜ!"
+
+    # Death message when killed by player
+    death-by-player: "&7ʜʀáč &c%victim% &7ʙʏʟ ᴢᴀʙɪᴛ ʜʀáčᴇᴍ &a%killer%"
+
+    # Death message when died from other causes
+    death-other: "&7ʜʀáč &c%victim% &7ᴢᴇᴍřᴇʟ"
+
   commands:
-    usage: "&cUse: /combat <reload>"
-    no-permission: "&cYou don't have permission to use this."
-    reload-success: "&aConfig reloaded!"
+    # General command usage message
+    usage: "&cᴘᴏᴜžɪᴛí: /combat <reload>"
+
+    # No permission message
+    no-permission: "&cɴᴇᴍáš ᴏᴘʀáᴠɴěɴí ᴘᴏᴜžíᴛ ᴛᴇɴᴛᴏ ᴘříᴋᴀᴢ."
+
+    # Only players can use this command
+    not-a-player: "&cᴘᴏᴜᴢᴇ ʜʀáči ᴍᴏʜᴏᴜ ᴘᴏᴜžíᴛ ᴛᴇɴᴛᴏ ᴘříᴋᴀᴢ."
+
+    # Config reloaded message
+    reload-success: "&aᴋᴏɴꜰɪɢᴜʀᴀᴄᴇ ʙʏʟᴀ ɴᴀčᴛᴇɴᴀ!"
+
+# =======================
+# Action Bar
+# =======================
+# Action bar shown while in combat.
+# =======================
+actionbar:
+  # Action bar text (%time% = remaining time in seconds)
+  text: "&c&lᴄᴏᴍʙᴀᴛ &8» &f%time%ꜱ"
+
+  # Format for time display (e.g., "15.0", "14.5", etc.)
+  time-format: "%.1f"
+
+# =======================
+# Sounds
+# =======================
+# Sounds played on certain events.
+# =======================
+sounds:
+  # Sound when entering combat
+  combat-start: "ENTITY_EXPERIENCE_ORB_PICKUP"
+
+  # Sound when combat ends
+  combat-end: "ENTITY_PLAYER_LEVELUP"
+
+  # Sound when command is blocked
+  command-blocked: "ENTITY_VILLAGER_NO"

@@ -4,3 +4,20 @@ main: dev.meyba.justCombat.JustCombat
 api-version: '1.21'
 authors: [ Meyba._., Jezevcik20 ]
 description: Just a combat plugin.
+
+commands:
+  combat:
+    description: Combat plugin commands
+    usage: /<command> [reload|info]
+    aliases: [combattag, ct]
+
+permissions:
+  combat.reload:
+    description: Allows reloading the config
+    default: op
+  combat.info:
+    description: Allows checking combat status
+    default: true
+  combat.bypass:
+    description: Bypass combat tagging
+    default: op
