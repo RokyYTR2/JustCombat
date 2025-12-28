@@ -9,15 +9,15 @@ commands:
   combat:
     description: Combat plugin commands
     usage: /<command> [reload|info]
-    aliases: [combattag, ct]
+    aliases: [justcombat, combattag, ct]
 
 permissions:
-  combat.reload:
+  justcombat.reload:
     description: Allows reloading the config
     default: op
-  combat.info:
+  justcombat.info:
     description: Allows checking combat status
     default: true
-  combat.bypass:
+  justcombat.bypass:
     description: Bypass combat tagging
     default: op
