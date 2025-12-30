@@ -9,10 +9,13 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
+import org.bukkit.entity.EnderPearl;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.entity.PlayerDeathEvent;
+import org.bukkit.event.entity.ProjectileLaunchEvent;
 import org.bukkit.event.player.PlayerCommandPreprocessEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
+import org.bukkit.event.player.PlayerToggleFlightEvent;
 
 import java.util.List;
 
@@ -116,6 +119,67 @@ public class CombatListener implements Listener {
                     player.playSound(player.getLocation(), sound, 1.0f, 1.0f);
                 } catch (IllegalArgumentException ignored) {}
             }
+        }
+    }
+
+    @EventHandler(priority = EventPriority.HIGHEST)
+    public void onPlayerToggleFlight(PlayerToggleFlightEvent event) {
+        Player player = event.getPlayer();
+
+        if (!combatManager.isInCombat(player)) {
+            return;
+        }
+
+        if (!combatManager.isDisableFly()) {
+            return;
+        }
+
+        if (event.isFlying()) {
+            event.setCancelled(true);
+            String prefix = ChatColor.translateAlternateColorCodes('&', plugin.getConfig().getString("prefix", ""));
+            String flyMessage = plugin.getConfig().getString("messages.combat.fly-disabled", "&cғʟʏ ᴍᴏᴅᴇ ᴅɪꜱᴀʙʟᴇᴅ ᴅᴜᴇ ᴛᴏ ᴄᴏᴍʙᴀᴛ!");
+            player.sendMessage(prefix + ChatColor.translateAlternateColorCodes('&', flyMessage));
+
+            String soundName = plugin.getConfig().getString("sounds.command-blocked");
+            if (soundName != null && !soundName.isEmpty()) {
+                try {
+                    Sound sound = Sound.valueOf(soundName);
+                    player.playSound(player.getLocation(), sound, 1.0f, 1.0f);
+                } catch (IllegalArgumentException ignored) {}
+            }
+        }
+    }
+
+    @EventHandler(priority = EventPriority.HIGHEST)
+    public void onProjectileLaunch(ProjectileLaunchEvent event) {
+        if (!(event.getEntity() instanceof EnderPearl)) {
+            return;
+        }
+
+        if (!(event.getEntity().getShooter() instanceof Player player)) {
+            return;
+        }
+
+        if (!combatManager.isInCombat(player)) {
+            return;
+        }
+
+        if (!combatManager.isBlockEnderPearls()) {
+            return;
+        }
+
+        event.setCancelled(true);
+
+        String prefix = ChatColor.translateAlternateColorCodes('&', plugin.getConfig().getString("prefix", ""));
+        String pearlMessage = plugin.getConfig().getString("messages.combat.ender-pearl-blocked", "&cʏᴏᴜ ᴄᴀɴɴᴏᴛ ᴜꜱᴇ ᴇɴᴅᴇʀ ᴘᴇᴀʀʟꜱ ᴡʜɪʟᴇ ɪɴ ᴄᴏᴍʙᴀᴛ!");
+        player.sendMessage(prefix + ChatColor.translateAlternateColorCodes('&', pearlMessage));
+
+        String soundName = plugin.getConfig().getString("sounds.command-blocked");
+        if (soundName != null && !soundName.isEmpty()) {
+            try {
+                Sound sound = Sound.valueOf(soundName);
+                player.playSound(player.getLocation(), sound, 1.0f, 1.0f);
+            } catch (IllegalArgumentException ignored) {}
         }
     }
 

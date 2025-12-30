@@ -24,6 +24,8 @@ public class CombatManager {
     private boolean broadcastLogout;
     private boolean showActionbar;
     private int actionbarUpdateInterval;
+    private boolean disableFly;
+    private boolean blockEnderPearls;
 
     public CombatManager(JustCombat plugin) {
         this.plugin = plugin;
@@ -36,6 +38,16 @@ public class CombatManager {
         this.broadcastLogout = plugin.getConfig().getBoolean("settings.broadcast-logout", true);
         this.showActionbar = plugin.getConfig().getBoolean("settings.show-actionbar", true);
         this.actionbarUpdateInterval = plugin.getConfig().getInt("settings.actionbar-update-interval", 2);
+        this.disableFly = plugin.getConfig().getBoolean("settings.disable-fly", true);
+        this.blockEnderPearls = plugin.getConfig().getBoolean("settings.block-ender-pearls", true);
+    }
+
+    public boolean isDisableFly() {
+        return disableFly;
+    }
+
+    public boolean isBlockEnderPearls() {
+        return blockEnderPearls;
     }
 
     public void reloadConfig() {
@@ -69,6 +81,13 @@ public class CombatManager {
                     Sound sound = Sound.valueOf(soundName);
                     player.playSound(player.getLocation(), sound, 1.0f, 1.0f);
                 } catch (IllegalArgumentException ignored) {}
+            }
+
+            if (disableFly && player.isFlying()) {
+                player.setFlying(false);
+                player.setAllowFlight(false);
+                String flyMessage = plugin.getConfig().getString("messages.combat.fly-disabled", "&cғʟʏ ᴍᴏᴅᴇ ᴅɪꜱᴀʙʟᴇᴅ ᴅᴜᴇ ᴛᴏ ᴄᴏᴍʙᴀᴛ!");
+                player.sendMessage(colorize(getPrefix() + flyMessage));
             }
         }
 

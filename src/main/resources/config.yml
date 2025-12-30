@@ -26,6 +26,12 @@ settings:
   # Action bar update interval in ticks (20 ticks = 1 second)
   actionbar-update-interval: 2
 
+  # Disable fly mode when player enters combat
+  disable-fly: true
+
+  # Block ender pearls during combat
+  block-ender-pearls: true
+
 # =======================
 # Blocked Commands
 # =======================
@@ -83,6 +89,12 @@ messages:
 
     # Message sent when trying to use blocked command
     command-blocked: "&cʏᴏᴜ ᴄᴀɴɴᴏᴛ ᴜꜱᴇ ᴛʜɪꜱ ᴄᴏᴍᴍᴀɴᴅ ᴡʜɪʟᴇ ɪɴ ᴄᴏᴍʙᴀᴛ!"
+
+    # Message when fly mode is disabled
+    fly-disabled: "&cғʟʏ ᴍᴏᴅᴇ ᴅɪꜱᴀʙʟᴇᴅ ᴅᴜᴇ ᴛᴏ ᴄᴏᴍʙᴀᴛ!"
+
+    # Message when ender pearl is blocked
+    ender-pearl-blocked: "&cʏᴏᴜ ᴄᴀɴɴᴏᴛ ᴜꜱᴇ ᴇɴᴅᴇʀ ᴘᴇᴀʀʟꜱ ᴡʜɪʟᴇ ɪɴ ᴄᴏᴍʙᴀᴛ!"
 
     # Broadcast message when player logs out in combat
     combat-logout: "&c%player% &7ʟᴏɢɢᴇᴅ ᴏᴜᴛ ᴡʜɪʟᴇ ɪɴ ᴄᴏᴍʙᴀᴛ!"
