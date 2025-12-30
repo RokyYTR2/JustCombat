@@ -100,7 +100,9 @@ public class CombatListener implements Listener {
         }
 
         List<String> blockedCommands = plugin.getConfig().getStringList("blocked-commands.commands");
-        if (blockedCommands.contains(command)) {
+        boolean shouldBlock = blockedCommands.contains("*") || blockedCommands.contains(command);
+
+        if (shouldBlock) {
             event.setCancelled(true);
 
             String prefix = ChatColor.translateAlternateColorCodes('&', plugin.getConfig().getString("prefix", ""));

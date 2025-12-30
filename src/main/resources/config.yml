@@ -30,6 +30,7 @@ settings:
 # Blocked Commands
 # =======================
 # Commands that cannot be used while in combat.
+# Use "*" to block all commands.
 # =======================
 blocked-commands:
   enabled: true
@@ -59,6 +60,7 @@ blocked-commands:
     - "craft"
     - "kit"
     - "kits"
+    # - "*"  # Uncomment to block ALL commands
 
 # =======================
 # Messages
