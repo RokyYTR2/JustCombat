@@ -42,7 +42,7 @@ public class VersionChecker {
 
     private String getLatestVersion() throws Exception {
         String urlString = String.format(
-                "https://raw.githubusercontent.com/%s/%s/refs/heads/%s/src/main/resources/plugin.yml",
+                "https://raw.githubusercontent.com/%s/%s/refs/heads/%s/build.gradle",
                 githubUser, repoName, "main"
         );
 
@@ -61,8 +61,8 @@ public class VersionChecker {
                 String line;
 
                 while ((line = reader.readLine()) != null) {
-                    if (line.startsWith("version:")) {
-                        String version = line.substring(line.indexOf(":") + 1).trim();
+                    if (line.trim().startsWith("version =")) {
+                        String version = line.substring(line.indexOf("=") + 1).trim();
                         version = version.replaceAll("['\"]", "");
 
                         reader.close();
