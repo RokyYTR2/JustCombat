@@ -1,6 +1,7 @@
 package dev.meyba.justCombat.listeners;
 
 import dev.meyba.justCombat.JustCombat;
+import dev.meyba.justCombat.hooks.WorldGuardHook;
 import dev.meyba.justCombat.managers.CombatManager;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -22,13 +23,15 @@ import java.util.List;
 public class CombatListener implements Listener {
     private final JustCombat plugin;
     private final CombatManager combatManager;
+    private final WorldGuardHook worldGuardHook;
 
-    public CombatListener(JustCombat plugin, CombatManager combatManager) {
+    public CombatListener(JustCombat plugin, CombatManager combatManager, WorldGuardHook worldGuardHook) {
         this.plugin = plugin;
         this.combatManager = combatManager;
+        this.worldGuardHook = worldGuardHook;
     }
 
-    @EventHandler(priority = EventPriority.MONITOR, ignoreCancelled = true)
+    @EventHandler(priority = EventPriority.HIGHEST, ignoreCancelled = true)
     public void onPlayerDamage(EntityDamageByEntityEvent event) {
         if (!(event.getEntity() instanceof Player victim)) {
             return;
@@ -48,6 +51,11 @@ public class CombatListener implements Listener {
             if (victim.hasPermission("combat.bypass") || attacker.hasPermission("combat.bypass")) {
                 return;
             }
+
+            if (!worldGuardHook.isPvpAllowed(attacker) || !worldGuardHook.isPvpAllowed(victim)) {
+                return;
+            }
+
             combatManager.tagPlayer(victim, attacker);
         }
     }

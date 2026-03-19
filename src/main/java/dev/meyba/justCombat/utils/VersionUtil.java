@@ -9,12 +9,12 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.logging.Level;
 
-public class VersionChecker {
+public class VersionUtil {
     private final Plugin plugin;
     private final String githubUser;
     private final String repoName;
 
-    public VersionChecker(Plugin plugin, String githubUser, String repoName) {
+    public VersionUtil(Plugin plugin, String githubUser, String repoName) {
         this.plugin = plugin;
         this.githubUser = githubUser;
         this.repoName = repoName;

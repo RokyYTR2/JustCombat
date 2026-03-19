@@ -4,6 +4,7 @@ main: dev.meyba.justCombat.JustCombat
 api-version: '1.21'
 authors: [ Meyba._., Jezevcik20 ]
 description: Just a combat plugin.
+softdepend: [WorldGuard]
 
 commands:
   combat:
